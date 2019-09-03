@@ -2,6 +2,7 @@
 
 namespace Core\Api;
 
+//veikia kaip dataHolderis. Klase sukurta tam, kad nekurti kiekviena karta array json masyva.
 class Response {
 
     private $data;

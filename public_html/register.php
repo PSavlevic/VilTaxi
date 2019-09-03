@@ -1,4 +1,5 @@
 <?php
+
 require '../bootloader.php';
 
 $form = new \App\Users\Views\RegisterForm();
@@ -24,6 +25,7 @@ switch (get_form_action()) {
     default:
         $success = false;
 }
+
 ?>
 <html>
 <head>
@@ -33,40 +35,39 @@ switch (get_form_action()) {
     <link href="https://fonts.googleapis.com/css?family=Aleo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="media/css/normalize.css">
     <link rel="stylesheet" href="media/css/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body id="register">
-<!-- Header -->
-<header>
-    <?php print $navigation->render(); ?>
-</header>
 
-<!-- Main Content -->
-<main>
-    <section class="wrapper">
-        <div class="block">
-            <?php if ($success): ?>
-                <h1>Registracija sėkminga!</h1>
-                <p>
-                    Galite prisijungti paspaudę <a href="/login.php">čia!</a>
-                </p>
-            <?php else: ?>
-            <div class="reg-form">
-                <h1>Registruotis:</h1>
+    <!-- Header -->
+    <header>
+        <?php print $navigation->render(); ?>
+    </header>
 
-                <!-- Register Form -->
-                <?php print $form->render(); ?>
-            <?php endif; ?>
-                <span class="privalomi">* privalomi laukeliai</span>
+    <!-- Main Content -->
+    <main>
+        <section class="wrapper">
+            <div class="block">
+                <?php if ($success): ?>
+                    <h1>Registracija sėkminga!</h1>
+                    <p>
+                        Galite prisijungti paspaudę <a href="/login.php">čia!</a>
+                    </p>
+                <?php else: ?>
+                <div class="reg-form">
+                    <h1>Registruotis:</h1>
+
+                    <!-- Register Form -->
+                    <?php print $form->render(); ?>
+                <?php endif; ?>
+                    <span class="privalomi">* privalomi laukeliai</span>
+                </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
-<!-- Footer -->
-<footer>
-    <?php print $footer->render(); ?>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <?php print $footer->render(); ?>
+    </footer>
 </body>
 </html>

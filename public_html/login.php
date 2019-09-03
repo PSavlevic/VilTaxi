@@ -23,6 +23,7 @@ switch (get_form_action()) {
         validate_form($filtered_input, $form->getData());
         break;
 }
+
 ?>
 <html>
 <head>
@@ -32,30 +33,29 @@ switch (get_form_action()) {
     <link href="https://fonts.googleapis.com/css?family=Aleo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="media/css/normalize.css">
     <link rel="stylesheet" href="media/css/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body id="login">
-<!-- Header -->
-<header>
-    <?php print $navigation->render(); ?>
-</header>
 
-<!-- Main Content -->
-<main>
-    <section class="wrapper">
-        <div class="block">
-            <h1>Prisijungti:</h1>
+    <!-- Header -->
+    <header>
+        <?php print $navigation->render(); ?>
+    </header>
 
-            <!-- Login Form -->
-            <?php print $form->render(); ?>
-        </div>
-    </section>
-</main>
+    <!-- Main Content -->
+    <main>
+        <section class="wrapper">
+            <div class="block">
+                <h1>Prisijungti:</h1>
 
-<!-- Footer -->
-<footer>
-    <?php print $footer->render(); ?>
-</footer>
+                <!-- Login Form -->
+                <?php print $form->render(); ?>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <?php print $footer->render(); ?>
+    </footer>
 </body>
 </html>

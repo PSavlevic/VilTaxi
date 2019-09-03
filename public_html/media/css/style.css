@@ -3,7 +3,6 @@
     font-family: 'Aleo', serif;
 }
 
-
 header {
     background-color: #EBA600;
     padding: 15px;
@@ -34,6 +33,10 @@ header {
 
 main {
     min-height: calc(100vh - 120px);
+}
+
+#index main {
+    background-color: #F8EFBA;
 }
 
 #containeris {
@@ -118,7 +121,6 @@ table td:nth-child(2) {
     text-align: left;
 }
 
-
 /* =============== FORM =============== */
 
 form .field-wrapper {
@@ -170,6 +172,10 @@ button {
     outline: none;
 }
 
+.req-div img {
+    max-width: 100%;
+}
+
 /* =============== FOOTER =============== */
 
 footer {
@@ -189,6 +195,7 @@ footer {
         margin: 0 auto;
     }
 
+    /* =============== HEADER =============== */
     header {
         background-color: #EBA600;
         display: flex;
@@ -228,7 +235,7 @@ footer {
         font-weight: bold;
     }
 
-
+    /* =============== MAIN =============== */
     .flex-resp {
         display: flex;
         justify-content: space-between;
@@ -263,7 +270,6 @@ footer {
         background-position: bottom;
     }
 
-
     #register .reg-form, #login main .block {
         background-color: rgba(255, 255, 255, 0.9);
         padding: 20px;
@@ -276,7 +282,7 @@ footer {
         text-align: center;
     }
 
-    #login main .block h1 {
+    #login main .block h1, #feedback main .white-div h2 {
         color: #EBA600;
     }
 
@@ -288,8 +294,28 @@ footer {
         padding-top: 20px;
     }
 
+    #feedback main {
+        background-image: url("../images/feed-bg.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: bottom;
+        padding: 20px 0;
+    }
+
+    #feedback main .white-div {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        width: 60%;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+
     .privalomi {
         font-size: 0.7em;
         color: red;
+    }
+
+    .req-div img {
+        width: 100%;
     }
 }

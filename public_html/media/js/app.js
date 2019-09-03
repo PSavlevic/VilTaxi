@@ -1,15 +1,20 @@
 'use strict';
+
 /**
- * Returns exact date and time when feedback was entered
+ * grazina data ir laika, kada buvo ivestas komentaras
  */
 function getTime() {
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var Time = date+' '+time;
+    var Time = date + ' ' + time;
     return Time;
 }
 
+/**
+ * API linkai
+ * @type {{get: string, create: string}}
+ */
 const endpoints = {
     get: 'api/feedbacks/get.php',
     create: 'api/feedbacks/create.php',
@@ -28,23 +33,23 @@ function api(url, formData, success, fail) {
         method: 'POST',
         body: formData
     }).then(response => response.json())
-            .then(obj => {
-                if (obj.status === 'success') {
-                    success(obj.data);
-                } else {
-                    fail(obj.errors);
-                }
-            })
-            .catch(e => {
-                console.log(e);
-                fail(['Could not connect to API!']);
-            });
+        .then(obj => {
+            if (obj.status === 'success') {
+                success(obj.data);
+            } else {
+                fail(obj.errors);
+            }
+        })
+        .catch(e => {
+            console.log(e);
+            fail(['Could not connect to API!']);
+        });
 }
 
 /**
  * Form array
  * Contains all form-related functionality
- * 
+ *
  * Object forms
  */
 const forms = {
@@ -61,10 +66,13 @@ const forms = {
             return document.getElementById("create-form");
         },
         onSubmitListener: function (e) {
-            e.preventDefault(); //panaikina defaultines browserio veiksmus
+            // e.preventDefault panaikina defaultines browserio veiksmus
+            e.preventDefault();
             e.target.date.value = getTime();
-            let formData = new FormData(e.target); // i formData idesim inputus, ka useris iveda. E.target, e - tai akvivalentas this->getElement (siuo atveju forma)
-            api(endpoints.create, formData, forms.create.success, forms.create.fail); //endpoints.create (is kur fetchinam), formData, kai response gauna is api "success" tada pasileidzia success funkcija
+            // i formData idesim inputus, ka useris iveda. E.target, e - tai akvivalentas this->getElement (siuo atveju forma)
+            let formData = new FormData(e.target);
+            //endpoints.create (is kur fetchinam), formData, kai response gauna is api "success" tada pasileidzia success funkcija
+            api(endpoints.create, formData, forms.create.success, forms.create.fail);
         },
         success: function (data) {
             const element = forms.create.getElement();
@@ -90,9 +98,9 @@ const forms = {
         /**
          * Fills form fields with data
          * Each data index corelates with input name attribute
-         * 
+         *
          * @param {Element} form
-         * @param {Object} data 
+         * @param {Object} data
          */
         clear: function (form) {
             var fields = form.querySelectorAll('[name]')
@@ -103,7 +111,7 @@ const forms = {
         flash: {
             class: function (element, class_name) {
                 const prev = element.className;
-                
+
                 element.className += class_name;
                 setTimeout(function () {
                     element.className = prev;
@@ -117,7 +125,7 @@ const forms = {
             /**
              * Shows errors in form
              * Each error index correlates with input name attribute
-             * 
+             *
              * @param {Element} form
              * @param {Object} errors
              */
@@ -168,16 +176,17 @@ const table = {
      */
     data: {
         /**
+         * //endpointu get tiesiog loadina visa informacija, formDatos nera (null), nes mes norim viska gaut
          * Loads data and populates table from API
          * @returns {undefined}
          */
-        load: function () { //endpointu get tiesiog loadina visa informacija, formDatos nera, nes mes norim viska gaut
+        load: function () {
             api(endpoints.get, null, this.success, this.fail);
         },
         success: function (data) {
             //foreachinam ka gavom ir appendinam elute
             Object.keys(data).forEach(i => {
-                table.row.append(data[i]); //kvieciam funkcija row.append
+                table.row.append(data[i]);
             });
         },
         fail: function (errors) {
@@ -190,19 +199,21 @@ const table = {
     row: {
         /**
          * Builds row element from data
-         * 
+         *
          * @param {Object} data
          * @returns {Element}
          */
-        build: function (data) {//data yra objektas
+        build: function (data) {
             const row = document.createElement('tr');
-            row.setAttribute('data-id', data.id); //eilutei nustatom data-id. Data-id yra tokia kokia atejo is duombazes data.id
-
-            Object.keys(data).forEach(data_id => {//objekta negalima foreachinti, bet galima foreachinti objekto key'us
-                if(data_id !== 'id') {
-                let td = document.createElement('td');
-                td.innerHTML = data[data_id]; //issitraukiu verte is data'os per ta data-id
-                row.append(td);
+            //eilutei nustatom data-id. Data-id yra tokia kokia atejo is duombazes data.id
+            row.setAttribute('data-id', data.id);
+            //objekta negalima foreachinti, bet galima foreachinti objekto key'us
+            Object.keys(data).forEach(data_id => {
+                if (data_id !== 'id') {
+                    let td = document.createElement('td');
+                    //issitraukiu verte is data'os per ta data-id
+                    td.innerHTML = data[data_id];
+                    row.append(td);
                 }
             });
 
@@ -210,11 +221,12 @@ const table = {
         },
         /**
          * Appends row to table from data
-         * 
+         *
          * @param {Object} data
          */
         append: function (data) {
-            table.getElement().append(this.build(data)); //appendinam subuildinta eilute
+            //appendinam subuildinta eilute
+            table.getElement().append(this.build(data));
         },
     },
 };
