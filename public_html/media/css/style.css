@@ -1,0 +1,33 @@
+header {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-flex {
+    width: 100%;
+}
+
+.link-wrapper a {
+    margin-bottom: 0;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .link-wrapper {
+    display: inline-block;
+    padding: 5px;
+}
+
+nav .link-wrapper.active {
+    border: 2px solid #21006d;
+    font-weight: bold;
+}
