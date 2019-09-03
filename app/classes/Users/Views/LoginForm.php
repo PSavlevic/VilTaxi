@@ -28,10 +28,9 @@ class LoginForm extends \Core\Views\Form {
                 'password' => [
                     'label' => 'Slaptažodis',
                     'type' => 'password',
-                    'placeholder' => 'Iveskite slaptažidį',
                     'extra' => [
                         'attr' => [
-                            'placeholder' => 'Enter password',
+                            'placeholder' => 'Iveskite slaptažodį',
                         ],
                         'validators' => [
                             'validate_not_empty',

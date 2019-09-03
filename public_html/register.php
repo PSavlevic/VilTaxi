@@ -30,12 +30,13 @@ switch (get_form_action()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registracija</title>
+    <link href="https://fonts.googleapis.com/css?family=Aleo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="media/css/normalize.css">
     <link rel="stylesheet" href="media/css/style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body id="register">
 <!-- Header -->
 <header>
     <?php print $navigation->render(); ?>
@@ -51,11 +52,14 @@ switch (get_form_action()) {
                     Galite prisijungti paspaudę <a href="/login.php">čia!</a>
                 </p>
             <?php else: ?>
+            <div class="reg-form">
                 <h1>Registruotis:</h1>
 
                 <!-- Register Form -->
                 <?php print $form->render(); ?>
             <?php endif; ?>
+                <span class="privalomi">* privalomi laukeliai</span>
+            </div>
         </div>
     </section>
 </main>

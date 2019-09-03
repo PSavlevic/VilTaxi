@@ -1,33 +1,295 @@
-header {
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
+/* =============== HEADER =============== */
+* {
+    font-family: 'Aleo', serif;
 }
 
-.nav-flex {
-    width: 100%;
+
+header {
+    background-color: #EBA600;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.link-wrapper {
+    text-align: center;
 }
 
 .link-wrapper a {
-    margin-bottom: 0;
-    font-size: 1em;
+    display: block;
+    margin-bottom: 25px;
+    font-size: 2em;
     text-decoration: none;
+    color: white;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* =============== MAIN =============== */
+
+#nuotrauka {
+    background-image: url(../images/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 150px;
 }
 
-nav .link-wrapper {
-    display: inline-block;
+main {
+    min-height: calc(100vh - 120px);
+}
+
+#containeris {
+    margin: 20px auto;
+}
+
+.paslauga {
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid silver;
+    height: 380px;
+    background-color: #EBA600;
+    color: white;
+    border-radius: 10px;
+}
+
+.paslauga h3 {
+    margin: 10px 0;
+}
+
+#ekonom-foto, #prog-foto, #vip-foto {
+    background-size: cover;
+    object-fit: cover;
+    height: 40%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+#ekonom-foto {
+    background-image: url("../images/3.jpg");
+}
+
+#prog-foto {
+    background-image: url("../images/2.jpg");
+}
+
+#vip-foto {
+    background-image: url("../images/4.jpg");
+}
+
+.pasl-tekstas {
+    margin: 0 5px;
+}
+
+#zemelapis {
+    height: 300px;
+}
+
+.block {
+    padding: 15px 0;
+}
+
+#register h1 {
+    color: #EBA600;
+}
+
+/* =============== TABLE =============== */
+
+table {
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+    width: 100%;
+    text-align: center;
+}
+
+table, tr, th, td {
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+th {
+    background-color: #EBA600;
+    color: white;
+}
+
+table td:first-child, table td:last-child {
+    width: 20%;
+}
+
+table td:nth-child(2) {
+    text-align: left;
+}
+
+
+/* =============== FORM =============== */
+
+form .field-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+form .field-error, form .error {
+    color: red;
+}
+
+form .message-wrapper {
+    margin-bottom: 2em;
+}
+
+form button {
+    transition: all 0.5s ease;
+}
+
+form.success button {
+    font-size: 0;
+    background: #EBA600;
+}
+
+form.success button:after {
+    font-size: 20px;
+    content: '✔';
+}
+
+input {
+    width: 100%;
     padding: 5px;
+    margin: 5px 0;
+    border: 1px solid silver;
+    border-radius: 5px;
+    outline: none;
 }
 
-nav .link-wrapper.active {
-    border: 2px solid #21006d;
-    font-weight: bold;
+input:focus {
+    border: 1px solid #EBA600;
+}
+
+button {
+    background-color: #EBA600;
+    color: #fff;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* =============== FOOTER =============== */
+
+footer {
+    background-color: #EBA600;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/*===============Responsive================*/
+
+@media only screen and (min-width: 400px) {
+    .wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    header {
+        background-color: #EBA600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+    }
+
+    .nav-flex {
+        width: 100%;
+    }
+
+    .link-wrapper a {
+        margin-bottom: 0;
+        font-size: 1em;
+        text-decoration: none;
+    }
+
+    .link-wrapper a:hover {
+        text-decoration: underline;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav .link-wrapper {
+        display: inline-block;
+        padding: 5px;
+    }
+
+    nav .link-wrapper.active {
+        border: 2px solid #fff;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+
+    .flex-resp {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #nuotrauka {
+        height: 300px;
+    }
+
+    .paslauga {
+        max-width: 25%;
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    #containeris {
+        min-height: 400px;
+    }
+
+    button:hover {
+        border: 2px solid #EBA600;
+        background-color: #F8EFBA;
+        color: gray;
+    }
+
+    #register main {
+        background-image: url("../images/reg-bg.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: bottom;
+    }
+
+
+    #register .reg-form, #login main .block {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 5px;
+    }
+
+    #register .reg-form h1, #login main .block h1 {
+        text-align: center;
+    }
+
+    #login main .block h1 {
+        color: #EBA600;
+    }
+
+    #login main {
+        background-image: url("../images/login-bg.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: bottom;
+        padding-top: 20px;
+    }
+
+    .privalomi {
+        font-size: 0.7em;
+        color: red;
+    }
 }
