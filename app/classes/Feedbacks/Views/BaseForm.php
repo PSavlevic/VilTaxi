@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Feedbacks\Views;
-date_default_timezone_set('europe/vilnius');
 
 class BaseForm extends \Core\Views\Form {
 
